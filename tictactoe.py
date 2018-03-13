@@ -37,15 +37,19 @@ def get_input(symbol):
     ''' Gets input from the user from the console. Determines
     whether the input is valid or not.
     '''
+    move = ""
     valid_move = False
     while not valid_move:
-        move = input("Pick a position to place \"" + symbol + "\":  ")
-        move = int(move)
-        if move >= 1 and move <= 9:
-            return move - 1
-        else:
-            print("Invalid move. Try again.\n")
-            print_instructions()
+        try:
+            move = int(input("Pick a position to place " + symbol + " :  "))
+            break
+            if move >= 1 and move <= 9:
+                return move - 1
+            else:
+                print ("Invalid move. Try again.\n")
+                print_instructions()
+        except ValueError:
+            print(''.join(["Invalid move. Try again!\n"]))       
 
 def check_board(board):
     ''' Checks the board to check if the board contains a winning combo.
