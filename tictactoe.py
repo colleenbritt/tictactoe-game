@@ -42,14 +42,13 @@ def get_input(symbol):
     while not valid_move:
         try:
             move = int(input("Pick a position to place " + symbol + " :  "))
-            break
             if move >= 1 and move <= 9:
                 return move - 1
             else:
-                print ("Invalid move. Try again.\n")
+                print("Invalid move. Try again.\n")
                 print_instructions()
         except ValueError:
-            print(''.join(["Invalid move. Try again!\n"]))       
+            print(''.join(["Invalid move. Try again!\n"]))
 
 def check_board(board):
     ''' Checks the board to check if the board contains a winning combo.
